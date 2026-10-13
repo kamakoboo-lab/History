@@ -33,7 +33,7 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
-      height: 100vh;
+      height: 100dvh;
       width: 100vw;
       overflow: hidden;
       display: flex;
@@ -113,6 +113,7 @@
       display: none;
       flex-direction: column;
       overflow-y: auto;
+      dustify-content: center;
     }
 
     .screen.active {
@@ -680,11 +681,22 @@
       currentMode = mode;
       document.getElementById('modeSelect').classList.toggle('active', mode === 'select');
       document.getElementById('modeInput').classList.toggle('active', mode === 'input');
-      
-      document.getElementById('selectModeUI').style.display = mode === 'select' ? 'grid' : 'none';
-      document.getElementById('inputModeUI').style.display = mode === 'input' ? 'flex' : 'none';
-    }
 
+      const selectUI = document.getElementById('selectModeUI');
+      const inputUI = document.getElementById('inputModeUI');
+
+      if (mode === 'select') {
+        selectUI.style.display = 'grid';
+        inputUI.style.display = 'none';
+      } else {
+        selectUI.style.display = 'none';
+        inputUI.style.display = 'flex';
+      }
+
+      if (document.getElementById('quizScreen').classList.contains('active')) {
+        showQuestion();
+      }
+    }
     function loadWrongQuestions() {
       const saved = localStorage.getItem('history_quiz_wrong_157');
       if (saved) wrongQuestionsMap = JSON.parse(saved);
