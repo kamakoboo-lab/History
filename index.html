@@ -113,7 +113,6 @@
       display: none;
       flex-direction: column;
       overflow-y: auto;
-      dustify-content: center;
     }
 
     .screen.active {
@@ -210,13 +209,12 @@
 
     .quiz-container {
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
       width: 100%;
-      height: flex;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 16px;
+      justify-content: space-between;
     }
 
     .quiz-header {
@@ -239,7 +237,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      max-height: 25vh;
+      flex: 1;
+      margin-bottom: 12px;
+      max-height: 35vh;
       overflow-y: auto;
     }
 
@@ -248,7 +248,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       flex-shrink: 0;
-      height: 160px;
+      height: 180px;
     }
 
     .option-btn {
@@ -270,9 +270,9 @@
     .input-container {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       flex-shrink: 0;
-      height: 130px;
+      height: 140px;
       justify-content: center;
     }
 
